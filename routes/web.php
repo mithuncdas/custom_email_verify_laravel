@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login','UsersController@login')->name('user.login');
+Route::post('/login/validate','UsersController@validation')->name('user.validation');
+Route::get('/register','UsersController@create')->name('user.create');
+Route::post('/user/store','UsersController@store')->name('user.store');
+Route::get('/user/verify/{token}','UsersController@verifyEmail')->name('user.verify');

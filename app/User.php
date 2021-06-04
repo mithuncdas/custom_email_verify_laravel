@@ -16,8 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','email_verified_at',
     ];
+
+    //one to one relation with verify user model
+    public function verifyUser(){
+        return $this->hasOne('App\VerifyUser');
+    }
 
     /**
      * The attributes that should be hidden for arrays.
